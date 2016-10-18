@@ -4,8 +4,5 @@
 
 package com.MagePVP.Events;
 
-/**
- * Created by Soringaming on 10/18/2016.
- */
 public class Temp {
 }

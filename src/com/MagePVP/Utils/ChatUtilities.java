@@ -13,17 +13,21 @@ public class ChatUtilities {
 		return ChatColor.translateAlternateColorCodes('&', MagePVP.plugin.getConfig().getString("Chat.Prefix")) + " ";
 	}
 
-	public static void announceToPlayers(String msg) {
+	public static void announce(String msg) {
 
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			// TODO change to only the players IN THE GAME :D
 			p.sendMessage(prefix() + " " + msg);
 		}
 	}
-
-	public static void announceToServer(String msg) {
-
-		Bukkit.getServer().broadcastMessage(prefix() + " " +msg);
+	
+	public static void insufficientPermission(Player player) {
+		
+		player.sendMessage(prefix() + ChatColor.translateAlternateColorCodes('&', MagePVP.plugin.getConfig().getString("Chat.Error.InsufficientPermissions")));
+	}
+	
+	public static void message(Player player, String msg) {
+		
+		player.sendMessage(prefix() + msg);
 	}
 
 }

@@ -2,3 +2,22 @@ name: MagePVP
 author: Soringaming, Sobki
 version: 1.0.0 PREALPHA
 main: com.MagePVP.MagePVP
+
+commands:
+     SetLobby:
+         usage: /<command>
+         description: Sets the lobby to the players current location.
+         aliases: [slobby]
+         
+     LobbyTP:
+         usage: /<command>
+         description: Teleports the user to the lobby
+         
+permissions:
+    MagePVP.SetLobby:
+        description: The permision for using the SetLobby command.
+        default: op
+        
+    MagePVP.LobbyTp:
+        description: The permission used for teleporting the player to the lobby.
+        default: op

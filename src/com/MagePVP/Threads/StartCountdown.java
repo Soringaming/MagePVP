@@ -4,39 +4,31 @@
 
 package com.MagePVP.Threads;
 
-import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 
-/**
- * Created by Soringaming on 10/18/2016.
- */
+import com.MagePVP.MagePVP;
+import com.MagePVP.Methods;
+import com.MagePVP.Utils.ChatUtilities;
+
 public class StartCountdown implements Runnable {
 
-    private static int timeUntilStart;
+	private static int timeUntilStart = 60;
 
-    @Override
-    public void run() {
-
-        timeUntilStart = 60;
-        while (true) {
-            for (; timeUntilStart >= 0; timeUntilStart--) {
-                if (timeUntilStart == 0) {
-                    //Start le game
-                    break;
-                }
-                if (timeUntilStart % 10 == 0 || timeUntilStart < 10) {
-                    // say some shit
-                }
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Bukkit.shutdown();
-                }
-            }
-
-        }
-
-    }
+	@Override
+	public void run() {
+		
+		if (timeUntilStart == 0) {
+			Methods.start();
+			timeUntilStart = 60;
+			return;
+		}
+		
+		if (timeUntilStart % 10 == 0 || timeUntilStart < 10) {
+			ChatUtilities.announceToServer(ChatColor.translateAlternateColorCodes('&', MagePVP.plugin.getConfig()
+					.getString("Chat.GameStarting").replace("{X}", String.valueOf(timeUntilStart))));
+		}
+		
+		timeUntilStart--;
+	}
 
 }

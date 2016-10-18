@@ -2,7 +2,7 @@
 The MagePVP minigame
 
 Project Leads:
-Soringaming
-Sobki
+- Soringaming
+- Sobki
 
 
